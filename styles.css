@@ -3,10 +3,18 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.gallery-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
 .gallery {
-    width: 100%;
+    width: 80%;
     overflow: hidden;
     position: relative;
+    margin: 20px 0; /* Add some margin to separate the arrows from the image */
 }
 
 .gallery-container {
@@ -17,14 +25,11 @@ body {
 
 .gallery-container img {
     width: 100%;
-    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
     display: block;
 }
 
 .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
@@ -34,10 +39,29 @@ body {
 }
 
 .left-arrow {
-    left: 10px;
+    margin-right: 10px;
 }
 
 .right-arrow {
-    right: 10px;
+    margin-left: 10px;
+}
+
+.dots-container {
+    text-align: center;
+    padding: 10px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: grey;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: black;
 }
 

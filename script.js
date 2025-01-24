@@ -2,12 +2,33 @@ document.addEventListener('DOMContentLoaded', function() {
     const galleryContainer = document.querySelector('.gallery-container');
     const leftArrow = document.querySelector('.left-arrow');
     const rightArrow = document.querySelector('.right-arrow');
+    const dotsContainer = document.querySelector('.dots-container');
     let currentIndex = 0;
+
+    function createDots() {
+        for (let i = 0; i < galleryContainer.children.length; i++) {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            if (i === currentIndex) {
+                dot.classList.add('active');
+            }
+            dot.addEventListener('click', () => showImage(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function updateDots() {
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
 
     function showImage(index) {
         currentIndex = (index + galleryContainer.children.length) % galleryContainer.children.length;
         const offset = -currentIndex * 100;
         galleryContainer.style.transform = `translateX(${offset}%)`;
+        updateDots();
     }
 
     leftArrow.addEventListener('click', () => {
@@ -45,5 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         isSwiping = false;
     });
+
+    createDots();
 });
 
