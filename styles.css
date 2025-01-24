@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.gallery {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.gallery-container img {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+}
