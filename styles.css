@@ -24,8 +24,8 @@ body {
 }
 
 .gallery-container img {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
+    width: auto;
+    height: 100%; /* Maintain aspect ratio */
     display: block;
 }
 
