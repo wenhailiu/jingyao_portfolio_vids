@@ -23,9 +23,21 @@ body {
     will-change: transform;
 }
 
-.gallery-container img {
-    width: auto;
-    height: 100%; /* Maintain aspect ratio */
+.image-wrapper {
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 100vh; /* Limit the maximum height to viewport height */
     display: block;
 }
 
