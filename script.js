@@ -46,17 +46,20 @@ document.addEventListener('DOMContentLoaded', function() {
     galleryContainer.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
         isSwiping = true;
+        galleryContainer.style.transition = 'none';  // Disable transition during swipe
     });
 
     galleryContainer.addEventListener('touchmove', (e) => {
         if (!isSwiping) return;
         const deltaX = e.touches[0].clientX - startX;
-        galleryContainer.style.transform = `translateX(${(-currentIndex * 100) + (deltaX / window.innerWidth) * 100}%)`;
+        const offset = (-currentIndex * 100) + ((deltaX / galleryContainer.clientWidth) * 100);
+        galleryContainer.style.transform = `translateX(${offset}%)`;
     });
 
     galleryContainer.addEventListener('touchend', (e) => {
         if (!isSwiping) return;
         const deltaX = e.changedTouches[0].clientX - startX;
+        galleryContainer.style.transition = 'transform 0.5s ease-in-out';  // Re-enable transition
         if (deltaX > 50) {
             showImage(currentIndex - 1);
         } else if (deltaX < -50) {

@@ -34,8 +34,8 @@ body {
 }
 
 .image-wrapper img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
     object-fit: cover;
     max-height: 100vh; /* Limit the maximum height to viewport height */
     display: block;
