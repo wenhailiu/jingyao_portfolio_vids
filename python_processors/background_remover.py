@@ -2,9 +2,9 @@ import cv2
 import numpy as np
 
 
-video = cv2.VideoCapture("/mnt/c/Users/wen-hai liu/Downloads/CARA_gifs/DBS/dbs_upz_5.MOV")
+video = cv2.VideoCapture("/mnt/c/Users/wen-hai liu/Downloads/CARA_gifs/final_final/medicine_share.mp4")
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-out = cv2.VideoWriter('/mnt/c/Users/wen-hai liu/Downloads/CARA_gifs/DBS/dbs_upz_5_rmv.MOV', fourcc, 24.03, (int(video.get(3)), int(video.get(4))))
+out = cv2.VideoWriter('/mnt/c/Users/wen-hai liu/Downloads/CARA_gifs/final_final/medicine_share_rmv.mp4', fourcc, 24.03, (int(video.get(3)), int(video.get(4))))
 ret, frame = video.read()
 target_color = np.array([250, 245, 246])
 replacement_color = np.array([255, 255, 255])
